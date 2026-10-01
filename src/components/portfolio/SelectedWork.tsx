@@ -8,7 +8,7 @@ interface SelectedWorkProps {
 
 export const SelectedWork: React.FC<SelectedWorkProps> = ({ projects }) => {
   return (
-    <section id="work" className="py-20 sm:py-28 bg-white">
+    <section id="work" className="scroll-mt-20 sm:scroll-mt-24 py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header Divider */}
         <div className="border-b-2 border-depros-black pb-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">

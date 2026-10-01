@@ -3,7 +3,7 @@ import { STUDIO_CAPABILITIES } from "@/lib/data";
 
 export const ManifestoBanner: React.FC = () => {
   return (
-    <section id="studio" className="py-20 sm:py-28 bg-white border-t border-depros-black">
+    <section id="studio" className="scroll-mt-20 sm:scroll-mt-24 py-20 sm:py-28 bg-white border-t border-depros-black">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Label */}
         <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-depros-orange mb-8 sm:mb-12">

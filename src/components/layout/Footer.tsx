@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
   return (
     <footer
       id="contact"
-      className="bg-depros-orange text-white pt-24 pb-16 sm:pt-32 sm:pb-20 relative overflow-hidden"
+      className="scroll-mt-20 sm:scroll-mt-24 bg-depros-orange text-white pt-24 pb-16 sm:pt-32 sm:pb-20 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         {/* Top Header Row with . + o accent */}

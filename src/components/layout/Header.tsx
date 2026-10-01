@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { DeprosLogo } from "../brand/DeprosLogo";
 
 export const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -10,7 +9,7 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -28,34 +27,30 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-200 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-sm border-b border-depros-border py-3 shadow-sm"
-          : "bg-transparent py-5 sm:py-6"
+          ? "bg-white border-b border-depros-border py-4"
+          : "bg-transparent py-6 sm:py-8"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
-        {/* Brand Anchor */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between">
+        {/* Simple Text Navigation Header — DEPROS in Gotham */}
         <Link
           href="#hero"
-          className="focus:outline-none focus-visible:ring-2 focus-visible:ring-depros-orange"
+          className={`font-sans font-bold text-lg sm:text-xl tracking-tight transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-depros-orange ${
+            scrolled ? "text-depros-black" : "text-white"
+          }`}
           aria-label="DEPROS Homepage"
           onClick={() => setMobileMenuOpen(false)}
         >
-          <DeprosLogo variant="black" showTagline={false} className="scale-90 origin-left" />
+          DEPROS
         </Link>
 
-        {/* Studio Status Accent */}
-        <div className="hidden md:flex items-center gap-2.5 text-[11px] tracking-widest uppercase text-depros-muted font-sans font-medium">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-depros-orange animate-pulse" />
-          <span>Bali, Indonesia</span>
-          <span className="text-depros-borderDark font-mono">/</span>
-          <span>Studio Profile 2026</span>
-        </div>
-
-        {/* Editorial Navigation */}
+        {/* Editorial Navigation Links */}
         <nav
-          className="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] font-medium text-depros-black"
+          className={`hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-200 ${
+            scrolled ? "text-depros-black" : "text-white"
+          }`}
           aria-label="Main Navigation"
         >
           <Link
@@ -82,26 +77,30 @@ export const Header: React.FC = () => {
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden flex flex-col justify-center items-center w-11 h-11 border border-depros-border bg-white text-depros-black focus:outline-none focus-visible:ring-2 focus-visible:ring-depros-orange"
+          className={`md:hidden flex flex-col justify-center items-center w-10 h-10 border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-depros-orange ${
+            scrolled
+              ? "border-depros-border bg-white text-depros-black"
+              : "border-white/30 bg-transparent text-white"
+          }`}
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
           <span
-            className={`w-5 h-[1.5px] bg-depros-black transition-transform duration-200 ${
-              mobileMenuOpen ? "rotate-45 translate-y-[3.5px]" : "-translate-y-1"
-            }`}
+            className={`w-5 h-[1.5px] transition-transform duration-200 ${
+              scrolled ? "bg-depros-black" : "bg-white"
+            } ${mobileMenuOpen ? "rotate-45 translate-y-[3.5px]" : "-translate-y-1"}`}
           />
           <span
-            className={`w-5 h-[1.5px] bg-depros-black transition-transform duration-200 ${
-              mobileMenuOpen ? "-rotate-45 -translate-y-[2px]" : "translate-y-1"
-            }`}
+            className={`w-5 h-[1.5px] transition-transform duration-200 ${
+              scrolled ? "bg-depros-black" : "bg-white"
+            } ${mobileMenuOpen ? "-rotate-45 -translate-y-[2px]" : "translate-y-1"}`}
           />
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[65px] bg-depros-black text-white border-b border-white/20 p-8 shadow-2xl animate-fadeIn">
+        <div className="md:hidden fixed inset-x-0 top-[60px] bg-depros-black text-white border-b border-white/20 p-8 shadow-none animate-fadeIn">
           <nav className="flex flex-col gap-6 text-sm uppercase tracking-[0.2em] font-medium">
             <Link
               href="#work"
@@ -128,10 +127,6 @@ export const Header: React.FC = () => {
               <span className="text-depros-orange font-mono">→</span>
             </Link>
           </nav>
-          <div className="mt-8 pt-4 text-[11px] text-white/50 flex justify-between items-center tracking-widest font-sans">
-            <span>DEPROS STUDIO</span>
-            <span>BALI, INDONESIA</span>
-          </div>
         </div>
       )}
     </header>
