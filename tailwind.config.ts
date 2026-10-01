@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         depros: {
-          orange: "#FF4600",
+          orange: "#FF4F00",
           black: "#0D0D0D",
           white: "#FFFFFF",
           muted: "#888888",

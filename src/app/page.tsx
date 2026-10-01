@@ -23,7 +23,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-start sm:items-start justify-between gap-8">
             {/* Top Left: Official Logo SVG */}
             <div>
-              <DeprosLogo variant="white" showTagline={true} className="scale-105 sm:scale-110 origin-top-left" />
+              <DeprosLogo variant="white" className="scale-105 sm:scale-110 origin-top-left" />
             </div>
 
             {/* Top Right: STUDIO PROFILE + . + o Micro Elements */}

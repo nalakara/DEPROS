@@ -50,7 +50,7 @@ The visual character of DEPROS is bold, editorial, structured, and unpretentious
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │  DEPROS PALETTE                                                        │
-│  ■ Primary Orange   : #FF4600 / #FF4500 (Vibrant, confident hero field)│
+│  ■ Primary Orange   : #FF4F00 (Vibrant, confident hero field)          │
 │  ■ Pure Black       : #0D0D0D / #000000 (Typographic weight & contrast)│
 │  ■ Crisp White      : #FFFFFF (Spacious canvas & negative space)       │
 │  ■ Light Gray / Muted: #F4F4F4 / #E8E8E8 (Subtle structural borders)   │
@@ -278,7 +278,7 @@ depros-website/
 
 1. **Phase 1: Project Setup & Design Token Foundation**
    - Initialize clean Next.js + TypeScript environment.
-   - Configure DEPROS color tokens (`#FF4600`, black, white), typography scale, and hairline dividers.
+   - Configure DEPROS color tokens (`#FF4F00`, black, white), typography scale, and hairline dividers.
 2. **Phase 2: Asset Extraction & Content Seeding**
    - Extract imagery from PDF into optimized WebP assets.
    - Populate local structured project data for all 7 categories and 12+ client records.
