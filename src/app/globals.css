@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --depros-orange: #FF4600;
+  --depros-black: #0D0D0D;
+  --depros-white: #FFFFFF;
+  --depros-border: #E5E5E5;
+  --depros-light: #F7F7F7;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  color: var(--depros-black);
+  background-color: var(--depros-white);
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom Selection in signature DEPROS Orange */
+::selection {
+  background-color: var(--depros-orange);
+  color: #ffffff;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--depros-orange);
+  outline-offset: 3px;
+}
+
+/* Editorial Hairlines */
+.border-hairline {
+  border-width: 1px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
