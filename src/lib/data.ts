@@ -10,7 +10,7 @@ export const FEATURED_PROJECTS: Project[] = [
     categorySlug: "product-design",
     client: "LOCALE BREWERY",
     description:
-      "Unleashing creativity beyond boundaries, our out-of-the-box design style captivates with innovation and breaks free from the ordinary.",
+      "Product packaging and label artwork for Janus Bifrous Herbs Liqueur. Crafted with distinct typography and disciplined layout.",
     image: "/images/projects/janus-bifrous/hero.png",
     year: "2024",
     scope: ["Product Design", "Packaging", "Label Artwork"],
@@ -25,7 +25,7 @@ export const FEATURED_PROJECTS: Project[] = [
     categorySlug: "product-design",
     client: "LOCALE BREWERY",
     description:
-      "Injecting a funky and youthful vibe into our coconut liqueur packaging, our designs radiate with vibrant energy, capturing the spirit of fun in every sip.",
+      "Packaging and illustrative design for Coco Flamingo Coconut Liqueur, pairing expressive character with clean structural geometry.",
     image: "/images/projects/coco-flamingo/hero.png",
     year: "2024",
     scope: ["Product Design", "Packaging", "Illustration"],
@@ -40,7 +40,7 @@ export const FEATURED_PROJECTS: Project[] = [
     categorySlug: "product-design",
     client: "LOCALE BREWERY",
     description:
-      "Setting sail on an outbound pirate adventure, our Kraken Rum packaging captures the untamed spirit of the high seas with an edgy and rebellious design, bringing the thrill of the voyage to every bottle.",
+      "Product design and thematic label illustration for Kraken Rum, balancing maritime narrative with bold shelf presence.",
     image: "/images/projects/kraken-rum/hero.png",
     year: "2024",
     scope: ["Product Design", "Packaging", "Illustration"],

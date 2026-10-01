@@ -19,7 +19,7 @@ export const DeprosLogo: React.FC<DeprosLogoProps> = ({
         alt="DEPROS Logo"
         width={1182}
         height={1182}
-        className={`w-36 sm:w-44 lg:w-52 h-auto ${
+        className={`w-full h-auto ${
           isWhite ? "brightness-0 invert" : ""
         }`}
         priority

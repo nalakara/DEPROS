@@ -25,11 +25,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ projects }) => {
 
           <div className="max-w-md text-xs sm:text-sm text-depros-muted font-sans leading-relaxed">
             <p className="font-bold text-depros-black mb-1">
-              Breaking Norms, Creating Waves, Simple Designs, Bold Statements.
+              Selected Works & Case Studies
             </p>
             <p>
-              We take simplicity to make bold statements, going beyond the usual to
-              leave a lasting impression.
+              Brand identity, product packaging, and corporate visual systems crafted with clarity, intention, and restraint.
             </p>
           </div>
         </div>

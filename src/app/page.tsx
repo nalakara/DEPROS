@@ -14,16 +14,16 @@ export default function HomePage() {
       <Header />
 
       <main className="flex-1">
-        {/* HOMEPAGE HERO — Exact Translation of DEPROS PDF Cover (Page 1) */}
+        {/* HOMEPAGE HERO — Refined Editorial Translation of DEPROS PDF Cover (Page 1) */}
         <section
           id="hero"
-          className="relative min-h-[92vh] sm:min-h-screen bg-depros-orange text-white flex flex-col justify-between pt-24 sm:pt-32 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-16 overflow-hidden select-none"
+          className="relative min-h-[90vh] sm:min-h-screen bg-depros-orange text-white flex flex-col justify-between pt-28 sm:pt-36 pb-16 sm:pb-24 px-6 sm:px-10 lg:px-16 select-none"
         >
           {/* Top Row: Official Logo & STUDIO PROFILE Header */}
-          <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-start sm:items-start justify-between gap-8">
-            {/* Top Left: Official Logo SVG */}
+          <div className="max-w-6xl mx-auto w-full flex flex-col sm:flex-row items-start justify-between gap-8">
+            {/* Top Left: Official Logo SVG with strong intentional presence */}
             <div>
-              <DeprosLogo variant="white" className="scale-105 sm:scale-110 origin-top-left" />
+              <DeprosLogo variant="white" className="w-48 sm:w-60 md:w-72 lg:w-80" />
             </div>
 
             {/* Top Right: STUDIO PROFILE + . + o Micro Elements */}
@@ -42,16 +42,16 @@ export default function HomePage() {
           </div>
 
           {/* Generous Negative Space in the Middle */}
-          <div className="my-auto py-12" aria-hidden="true" />
+          <div className="my-auto py-12 sm:py-20" aria-hidden="true" />
 
-          {/* Bottom Row: Source Manifesto Statements */}
-          <div className="max-w-7xl mx-auto w-full flex flex-col items-start sm:items-end text-left sm:text-right space-y-3 pt-8">
-            <h1 className="font-sans font-bold text-2xl sm:text-4xl lg:text-5xl leading-tight text-white max-w-xl">
+          {/* Bottom Row: Source Manifesto Statements (Restrained Editorial Tone) */}
+          <div className="max-w-6xl mx-auto w-full flex flex-col items-start sm:items-end text-left sm:text-right space-y-3">
+            <h1 className="font-sans font-bold text-2xl sm:text-3xl lg:text-4xl leading-tight text-white max-w-lg">
               Challenge the Usual.
               <br />
               Break the Expected.
             </h1>
-            <p className="font-sans text-xs sm:text-sm text-white/90 font-normal max-w-lg tracking-wide">
+            <p className="font-sans text-xs sm:text-sm text-white/85 font-normal max-w-md tracking-wide">
               Confident in Vision. Disruptive by Design. Intentional in Every Detail.
             </p>
           </div>
