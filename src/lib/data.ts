@@ -12,6 +12,29 @@ export const FEATURED_PROJECTS: Project[] = [
     description:
       "Product packaging and label artwork for Janus Bifrous Herbs Liqueur. Crafted with distinct typography and disciplined layout.",
     image: "/images/projects/janus-bifrous/hero.png",
+    images: [
+      {
+        src: "/images/projects/janus-bifrous/bottle-left.png",
+        alt: "JANUS BIFROUS - Bottle Front View on Warm Beige",
+        width: 714,
+        height: 795,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/janus-bifrous/circle-detail.png",
+        alt: "JANUS BIFROUS - Brand Identity Emblem & Geometric Detail",
+        width: 595,
+        height: 795,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/janus-bifrous/bottle-right.png",
+        alt: "JANUS BIFROUS - Bottle Angled View on Obsidian Black",
+        width: 595,
+        height: 795,
+        orientation: "portrait",
+      },
+    ],
     year: "2024",
     scope: ["Product Design", "Packaging", "Label Artwork"],
     featured: true,

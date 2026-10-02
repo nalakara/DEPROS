@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import { Project } from "@/lib/types";
+import { ProjectFraming } from "./ProjectFraming";
 
 interface ProjectCardProps {
   project: Project;
@@ -48,17 +48,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
       </div>
 
-      {/* Visual Showcase (Pure Artwork Asset without PDF page framing) */}
-      <div className="relative w-full aspect-[16/9] sm:aspect-[21/10] bg-depros-light overflow-hidden border border-depros-border/80">
-        <Image
-          src={project.image}
-          alt={`${project.title} - ${project.subtitle} designed by DEPROS`}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-          className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.01]"
-          priority={index === 0}
-        />
-      </div>
+      {/* Visual Showcase — Dynamic Framing System */}
+      <ProjectFraming project={project} priority={index === 0} />
 
       {/* Footer Scope & Metadata */}
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] font-sans uppercase tracking-wider text-depros-muted">

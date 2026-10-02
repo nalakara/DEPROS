@@ -7,6 +7,26 @@ export type ProjectCategory =
   | "06 / GRAPHIC & VISUAL"
   | "07 / SOCIAL MEDIA CONTENT";
 
+export type ImageOrientation = "landscape" | "portrait" | "square" | "panoramic";
+
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  orientation?: ImageOrientation;
+  caption?: string;
+}
+
+export type FramingLayoutMode = "auto" | "editorial";
+
+export interface FramingConfig {
+  layoutMode?: FramingLayoutMode;
+  editorialRows?: number[][]; // Array of image index groups per row, e.g. [[0], [1, 2]]
+  gap?: "none" | "hairline" | "sm" | "md";
+  aspectRatio?: string;
+}
+
 export interface Project {
   id: string;
   number: string; // e.g. "01"
@@ -16,7 +36,9 @@ export interface Project {
   categorySlug: string;
   client: string; // e.g. "LOCALE BREWERY"
   description: string;
-  image: string; // path in public/images/projects/
+  image: string; // fallback / single hero path
+  images?: ProjectImage[]; // multi-image source list
+  framingConfig?: FramingConfig;
   secondaryImage?: string;
   year: string;
   scope: string[];
