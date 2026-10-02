@@ -1,5 +1,6 @@
 import React from "react";
 import { Project } from "@/lib/types";
+import { CATEGORY_DISPLAY_NAMES } from "@/lib/data";
 import { ProjectFraming } from "./ProjectFraming";
 
 interface ProjectCardProps {
@@ -8,6 +9,13 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const displayCategory =
+    CATEGORY_DISPLAY_NAMES[project.category] ||
+    project.category.replace(/^\d+\s*\/\s*/, "").replace(/-/g, " ");
+
+  const displayIndex =
+    project.number || (index + 1 < 10 ? `0${index + 1}` : `${index + 1}`);
+
   return (
     <article className="border-t border-depros-black pt-6 sm:pt-8 pb-12 sm:pb-16 group">
       {/* Editorial Header Bar (Derived directly from DEPROS visual identity) */}
@@ -15,20 +23,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         {/* Left: Section Prefix + Category */}
         <div className="flex items-baseline gap-3">
           <span className="font-mono text-xs sm:text-sm font-bold tracking-widest text-depros-black">
-            {project.number} / DEP ROS
+            {displayIndex} / DEP ROS
           </span>
           <span className="font-sans font-bold text-sm sm:text-base tracking-wider uppercase text-depros-black">
-            {project.category.replace(/^\d+\s*\/\s*/, "")}
+            {displayCategory}
           </span>
         </div>
 
         {/* Right: Client Attribution */}
-        <div className="text-xs sm:text-sm uppercase tracking-wider text-depros-black/90 font-sans flex items-center gap-2">
-          <span className="text-depros-muted">Crafted for</span>
-          <strong className="text-depros-black font-bold">
-            {project.client}
-          </strong>
-        </div>
+        {project.client && (
+          <div className="text-xs sm:text-sm uppercase tracking-wider text-depros-black/90 font-sans flex items-center gap-2">
+            <span className="text-depros-muted">Crafted for</span>
+            <strong className="text-depros-black font-bold">
+              {project.clientDisplayName || project.client}
+            </strong>
+          </div>
+        )}
       </div>
 
       {/* Project Title & Short Pitch */}
@@ -36,16 +46,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         <div className="lg:col-span-6">
           <h3 className="font-sans font-bold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-depros-black uppercase">
             {project.title}
-            <span className="font-normal text-depros-muted text-lg sm:text-xl capitalize ml-2">
-              . {project.subtitle}
-            </span>
+            {project.subtitle && (
+              <span className="font-normal text-depros-muted text-lg sm:text-xl capitalize ml-2">
+                . {project.subtitle}
+              </span>
+            )}
           </h3>
         </div>
-        <div className="lg:col-span-6">
-          <p className="text-xs sm:text-sm text-depros-black/80 font-sans leading-relaxed">
-            {project.description}
-          </p>
-        </div>
+        {project.description && (
+          <div className="lg:col-span-6">
+            <p className="text-xs sm:text-sm text-depros-black/80 font-sans leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Visual Showcase — Dynamic Framing System */}
@@ -54,13 +68,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       {/* Footer Scope & Metadata */}
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] font-sans uppercase tracking-wider text-depros-muted">
         <div>
-          <span>Scope: {project.scope.join(" / ")}</span>
+          {project.scope && project.scope.length > 0 ? (
+            <span>Scope: {project.scope.join(" / ")}</span>
+          ) : (
+            <span className="capitalize">{project.presentationType} Presentation</span>
+          )}
         </div>
         <div className="flex items-center gap-3">
-          <span>Year: {project.year}</span>
-          <span className="font-mono text-depros-orange font-bold">0{index + 1}</span>
+          {project.year && <span>Year: {project.year}</span>}
+          <span className="font-mono text-depros-orange font-bold">{displayIndex}</span>
         </div>
       </div>
     </article>
   );
 };
+
