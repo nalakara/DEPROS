@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { CanonicalPortfolioEntry } from "@/lib/types";
 import { CATEGORY_DISPLAY_NAMES } from "@/lib/data";
 
@@ -37,7 +38,12 @@ export const ArchiveCard: React.FC<ArchiveCardProps> = ({
       : "16 / 9";
 
   return (
-    <article className="border border-depros-border/80 bg-white flex flex-col justify-between group transition-colors duration-200 hover:border-depros-black">
+    <Link
+      href={`/work/${project.slug}`}
+      className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-depros-orange"
+      aria-label={`View ${project.title} project details`}
+    >
+      <article className="border border-depros-border/80 bg-white flex flex-col justify-between transition-colors duration-200 group-hover:border-depros-black h-full">
       {/* Card Header Bar */}
       <div className="p-4 sm:p-5 border-b border-depros-border/80 flex items-center justify-between gap-3 bg-white">
         <div className="flex items-center gap-2.5">
@@ -116,5 +122,6 @@ export const ArchiveCard: React.FC<ArchiveCardProps> = ({
         </div>
       </div>
     </article>
+  </Link>
   );
 };
