@@ -115,7 +115,7 @@ export const ProjectFraming: React.FC<ProjectFramingProps> = ({
                           ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                           : "(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                       }
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+                      className="object-contain object-center"
                       priority={priority && img.index === 0}
                     />
                   </div>
