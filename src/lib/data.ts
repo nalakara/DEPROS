@@ -50,6 +50,29 @@ export const FEATURED_PROJECTS: Project[] = [
     description:
       "Packaging and illustrative design for Coco Flamingo Coconut Liqueur, pairing expressive character with clean structural geometry.",
     image: "/images/projects/coco-flamingo/hero.png",
+    images: [
+      {
+        src: "/images/projects/coco-flamingo/flamingo-art.png",
+        alt: "COCO FLAMINGO - Coconut Liqueur Illustrative Artwork",
+        width: 516,
+        height: 886,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/coco-flamingo/bottle-center.png",
+        alt: "COCO FLAMINGO - Bottle Center Showcase",
+        width: 733,
+        height: 886,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/coco-flamingo/beach-bottles.png",
+        alt: "COCO FLAMINGO - Tropical Lifestyle Duo",
+        width: 654,
+        height: 886,
+        orientation: "portrait",
+      },
+    ],
     year: "2024",
     scope: ["Product Design", "Packaging", "Illustration"],
     featured: true,
@@ -65,6 +88,29 @@ export const FEATURED_PROJECTS: Project[] = [
     description:
       "Product design and thematic label illustration for Kraken Rum, balancing maritime narrative with bold shelf presence.",
     image: "/images/projects/kraken-rum/hero.png",
+    images: [
+      {
+        src: "/images/projects/kraken-rum/bottle-left.png",
+        alt: "KRAKEN RUM - Jamaican Rum Bottle Left View",
+        width: 615,
+        height: 886,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/kraken-rum/bottle-center.png",
+        alt: "KRAKEN RUM - Bottle Center Showcase",
+        width: 674,
+        height: 886,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/kraken-rum/lifestyle-right.png",
+        alt: "KRAKEN RUM - Maritime Lifestyle Right View",
+        width: 615,
+        height: 886,
+        orientation: "portrait",
+      },
+    ],
     year: "2024",
     scope: ["Product Design", "Packaging", "Illustration"],
     featured: true,
@@ -80,6 +126,29 @@ export const FEATURED_PROJECTS: Project[] = [
     description:
       "Modern, iconic, unique, reachable, humble. A complete visual identity and merchandise system crafted for the mobile coffee vendor community.",
     image: "/images/projects/mitra-kopling/hero.png",
+    images: [
+      {
+        src: "/images/projects/mitra-kopling/brand-guide.png",
+        alt: "MITRA KOPLING - Brand Guidelines & Grid System",
+        width: 575,
+        height: 931,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/mitra-kopling/apparel.png",
+        alt: "MITRA KOPLING - Community Uniform & Apparel",
+        width: 496,
+        height: 931,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/mitra-kopling/merchandise.png",
+        alt: "MITRA KOPLING - Merchandise & Vehicle Branding",
+        width: 833,
+        height: 931,
+        orientation: "portrait",
+      },
+    ],
     year: "2023",
     scope: ["Brand Identity", "Visual Assets", "Merchandise Design"],
     featured: true,
@@ -95,6 +164,29 @@ export const FEATURED_PROJECTS: Project[] = [
     description:
       "Modern, simplicity, solid, detail, presized, geometric, sustainability. Precision stationery layout and comprehensive visual system guidelines.",
     image: "/images/projects/whysuper-millimeter/hero.png",
+    images: [
+      {
+        src: "/images/projects/whysuper-millimeter/stationery-left.png",
+        alt: "WHYSUPER & MILLIMETER - Corporate Stationery System",
+        width: 714,
+        height: 931,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/whysuper-millimeter/cards-center.png",
+        alt: "WHYSUPER & MILLIMETER - Business Cards & Grid Identity",
+        width: 773,
+        height: 931,
+        orientation: "portrait",
+      },
+      {
+        src: "/images/projects/whysuper-millimeter/guidelines-right.png",
+        alt: "WHYSUPER & MILLIMETER - Brand Guidelines Manual",
+        width: 417,
+        height: 931,
+        orientation: "portrait",
+      },
+    ],
     year: "2023",
     scope: ["Corporate Identity", "Stationery System", "Brand Guidelines"],
     featured: true,
