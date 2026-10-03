@@ -1,9 +1,9 @@
 import React from "react";
-import { Project } from "@/lib/types";
+import { CanonicalPortfolioEntry } from "@/lib/types";
 import { ProjectCard } from "./ProjectCard";
 
 interface SelectedWorkProps {
-  projects: Project[];
+  projects: CanonicalPortfolioEntry[];
 }
 
 export const SelectedWork: React.FC<SelectedWorkProps> = ({ projects }) => {

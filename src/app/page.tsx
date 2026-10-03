@@ -6,9 +6,12 @@ import { DeprosLogo } from "@/components/brand/DeprosLogo";
 import { SelectedWork } from "@/components/portfolio/SelectedWork";
 import { ManifestoBanner } from "@/components/studio/ManifestoBanner";
 import { ClientIndex } from "@/components/studio/ClientIndex";
-import { FEATURED_PROJECTS } from "@/lib/data";
+import { CANONICAL_PORTFOLIO_ENTRIES } from "@/lib/data";
 
 export default function HomePage() {
+  const featuredProjects = CANONICAL_PORTFOLIO_ENTRIES.filter(
+    (project) => project.featured
+  );
   return (
     <>
       <Header />
@@ -58,7 +61,7 @@ export default function HomePage() {
         </section>
 
         {/* 01: SELECTED WORK SHOWCASE */}
-        <SelectedWork projects={FEATURED_PROJECTS} />
+        <SelectedWork projects={featuredProjects} />
 
         {/* 02: STUDIO PROFILE & PHILOSOPHY */}
         <ManifestoBanner />

@@ -1,10 +1,10 @@
 import React from "react";
-import { Project } from "@/lib/types";
+import { CanonicalPortfolioEntry } from "@/lib/types";
 import { CATEGORY_DISPLAY_NAMES } from "@/lib/data";
 import { ProjectFraming } from "./ProjectFraming";
 
 interface ProjectCardProps {
-  project: Project;
+  project: CanonicalPortfolioEntry;
   index: number;
 }
 

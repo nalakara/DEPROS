@@ -996,8 +996,6 @@ export const CANONICAL_PORTFOLIO_ENTRIES: CanonicalPortfolioEntry[] = [
   },
 ];
 
-export const FEATURED_PROJECTS = CANONICAL_PORTFOLIO_ENTRIES;
-
 export const NOTABLE_CLIENTS: ClientItem[] = [
   {
     id: "nusa-dua-beach-hotel",
