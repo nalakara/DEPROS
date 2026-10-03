@@ -77,6 +77,12 @@ export const Header: React.FC<HeaderProps> = ({ variant = "light" }) => {
           >
             Contact
           </Link>
+          <Link
+            href="/console"
+            className="hover:text-depros-orange transition-colors duration-200 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-depros-orange"
+          >
+            Console
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -130,6 +136,14 @@ export const Header: React.FC<HeaderProps> = ({ variant = "light" }) => {
               className="flex items-center justify-between py-3 border-b border-white/10 hover:text-depros-orange transition-colors"
             >
               <span>Contact</span>
+              <span className="text-depros-orange font-mono">→</span>
+            </Link>
+            <Link
+              href="/console"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between py-3 border-b border-white/10 hover:text-depros-orange transition-colors"
+            >
+              <span>Console</span>
               <span className="text-depros-orange font-mono">→</span>
             </Link>
           </nav>
