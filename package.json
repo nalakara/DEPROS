@@ -10,9 +10,12 @@
     "test:adapter": "npx tsx src/lib/sanity/__tests__/run-tests.ts",
     "test:pilot": "npx tsx src/lib/sanity/__tests__/janus-pilot-migration.test.ts",
     "test:catalog": "npx tsx src/lib/sanity/__tests__/catalog-parity.test.ts",
-    "test:cms10": "npx tsx src/lib/sanity/__tests__/cms10-runtime-cutover.test.ts"
+    "test:cms10": "npx tsx src/lib/sanity/__tests__/cms10-runtime-cutover.test.ts",
+    "test:supabase": "npx tsx src/lib/supabase/__tests__/supabase-adapter.test.ts",
+    "seed:supabase:janus": "npx tsx src/lib/supabase/scripts/seed-janus-pilot.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.475.0",
