@@ -1,7 +1,14 @@
 import React from "react";
+import { ClientItem } from "@/lib/types";
 import { NOTABLE_CLIENTS } from "@/lib/data";
 
-export const ClientIndex: React.FC = () => {
+interface ClientIndexProps {
+  clients?: ClientItem[];
+}
+
+export const ClientIndex: React.FC<ClientIndexProps> = ({
+  clients = NOTABLE_CLIENTS,
+}) => {
   return (
     <section className="py-16 sm:py-24 bg-white border-t border-depros-border">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
@@ -29,7 +36,7 @@ export const ClientIndex: React.FC = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-depros-border/60 text-xs sm:text-sm font-sans">
-              {NOTABLE_CLIENTS.map((client, idx) => (
+              {clients.map((client, idx) => (
                 <tr
                   key={client.id}
                   className="hover:bg-depros-light/60 transition-colors duration-150 group"

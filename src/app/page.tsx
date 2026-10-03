@@ -6,12 +6,15 @@ import { DeprosLogo } from "@/components/brand/DeprosLogo";
 import { SelectedWork } from "@/components/portfolio/SelectedWork";
 import { ManifestoBanner } from "@/components/studio/ManifestoBanner";
 import { ClientIndex } from "@/components/studio/ClientIndex";
-import { CANONICAL_PORTFOLIO_ENTRIES } from "@/lib/data";
+import { getPortfolioEntries, getClientItems } from "@/lib/dataSource";
 
-export default function HomePage() {
-  const featuredProjects = CANONICAL_PORTFOLIO_ENTRIES.filter(
-    (project) => project.featured
-  );
+export default async function HomePage() {
+  const [allProjects, clients] = await Promise.all([
+    getPortfolioEntries(),
+    getClientItems(),
+  ]);
+
+  const featuredProjects = allProjects.filter((project) => project.featured);
   return (
     <>
       <Header />
@@ -67,7 +70,7 @@ export default function HomePage() {
         <ManifestoBanner />
 
         {/* 03: NOTABLE CLIENTS */}
-        <ClientIndex />
+        <ClientIndex clients={clients} />
       </main>
 
       <Footer />

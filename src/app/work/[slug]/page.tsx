@@ -1,21 +1,21 @@
 import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ProjectFraming } from "@/components/portfolio/ProjectFraming";
-import {
-  CANONICAL_PORTFOLIO_ENTRIES,
-  CATEGORY_DISPLAY_NAMES,
-} from "@/lib/data";
+import { CATEGORY_DISPLAY_NAMES } from "@/lib/data";
+import { getPortfolioEntries, getPortfolioEntryBySlug } from "@/lib/dataSource";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return CANONICAL_PORTFOLIO_ENTRIES.map((entry) => ({
+export async function generateStaticParams() {
+  const allProjects = await getPortfolioEntries();
+  return allProjects.map((entry) => ({
     slug: entry.slug,
   }));
 }
@@ -24,7 +24,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = CANONICAL_PORTFOLIO_ENTRIES.find((p) => p.slug === slug);
+  const project = await getPortfolioEntryBySlug(slug);
 
   if (!project) {
     return {
@@ -49,9 +49,12 @@ export async function generateMetadata({
 
 export default async function ProjectDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  const draft = await draftMode();
+  const isDraftMode = draft.isEnabled;
 
-  // Find canonical project record by slug
-  const projectIndex = CANONICAL_PORTFOLIO_ENTRIES.findIndex(
+  // Retrieve project catalog with draft mode support
+  const allProjects = await getPortfolioEntries({ isDraftMode });
+  const projectIndex = allProjects.findIndex(
     (p) => p.slug === slug
   );
 
@@ -59,14 +62,14 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const project = CANONICAL_PORTFOLIO_ENTRIES[projectIndex];
-  const total = CANONICAL_PORTFOLIO_ENTRIES.length;
+  const project = allProjects[projectIndex];
+  const total = allProjects.length;
 
   // Continuous archive loop calculation
   const prevIndex = (projectIndex - 1 + total) % total;
   const nextIndex = (projectIndex + 1) % total;
-  const prevProject = CANONICAL_PORTFOLIO_ENTRIES[prevIndex];
-  const nextProject = CANONICAL_PORTFOLIO_ENTRIES[nextIndex];
+  const prevProject = allProjects[prevIndex];
+  const nextProject = allProjects[nextIndex];
 
   const displayCategory =
     CATEGORY_DISPLAY_NAMES[project.category] ||

@@ -27,6 +27,7 @@ export interface SanityMediaItem {
   alt: string;
   role: "primary" | "detail" | "supporting" | "composite";
   caption?: string;
+  orientation?: "portrait" | "landscape" | "square" | "panoramic";
   asset: SanityImageAsset;
 }
 

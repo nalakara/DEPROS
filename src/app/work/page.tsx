@@ -4,7 +4,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ArchiveCard } from "@/components/portfolio/ArchiveCard";
 import { ArchiveFilter } from "@/components/portfolio/ArchiveFilter";
-import { CANONICAL_PORTFOLIO_ENTRIES, CATEGORY_DISPLAY_NAMES } from "@/lib/data";
+import { CATEGORY_DISPLAY_NAMES } from "@/lib/data";
+import { getPortfolioEntries } from "@/lib/dataSource";
 import { SemanticCategoryId } from "@/lib/types";
 
 export const metadata: Metadata = {
@@ -31,24 +32,28 @@ async function WorkContent({ searchParams }: WorkPageProps) {
   const resolvedParams = await Promise.resolve(searchParams);
   const rawCategory = resolvedParams?.category;
 
+  const allProjects = await getPortfolioEntries();
+
   // Validate category param; fall back safely to undefined (All) if invalid
   const selectedCategory: SemanticCategoryId | undefined =
     rawCategory && VALID_CATEGORIES.includes(rawCategory as SemanticCategoryId)
       ? (rawCategory as SemanticCategoryId)
       : undefined;
 
-  // Filter canonical portfolio records
+  // Filter portfolio records
   const filteredProjects = selectedCategory
-    ? CANONICAL_PORTFOLIO_ENTRIES.filter((p) => p.category === selectedCategory)
-    : CANONICAL_PORTFOLIO_ENTRIES;
+    ? allProjects.filter((p) => p.category === selectedCategory)
+    : allProjects;
 
   // Pre-calculate category counts
   const categoryCounts: Record<string, number> = {};
   for (const cat of VALID_CATEGORIES) {
-    categoryCounts[cat] = CANONICAL_PORTFOLIO_ENTRIES.filter(
+    categoryCounts[cat] = allProjects.filter(
       (p) => p.category === cat
     ).length;
   }
+
+  const totalCount = allProjects.length;
 
   const activeCategoryLabel = selectedCategory
     ? CATEGORY_DISPLAY_NAMES[selectedCategory]
@@ -94,7 +99,7 @@ async function WorkContent({ searchParams }: WorkPageProps) {
             <ArchiveFilter
               activeCategory={selectedCategory}
               categoryCounts={categoryCounts}
-              totalCount={CANONICAL_PORTFOLIO_ENTRIES.length}
+              totalCount={totalCount}
             />
 
             {/* Current Filter Status / Context Header */}
@@ -106,7 +111,7 @@ async function WorkContent({ searchParams }: WorkPageProps) {
                 </strong>
               </div>
               <div className="font-mono text-depros-black font-medium">
-                {filteredProjects.length} of {CANONICAL_PORTFOLIO_ENTRIES.length} Works
+                {filteredProjects.length} of {totalCount} Works
               </div>
             </div>
 

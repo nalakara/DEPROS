@@ -32,15 +32,17 @@ export function normalizeSanityMedia(item: SanityMediaItem): CanonicalMediaItem 
 
   const aspectRatio = dims?.aspectRatio ?? width / height;
 
-  let orientation: CanonicalMediaItem["orientation"] = "landscape";
-  if (aspectRatio > 2.0) {
-    orientation = "panoramic";
-  } else if (aspectRatio >= 1.05) {
-    orientation = "landscape";
-  } else if (aspectRatio <= 0.95) {
-    orientation = "portrait";
-  } else {
-    orientation = "square";
+  let orientation: CanonicalMediaItem["orientation"] = item.orientation || "landscape";
+  if (!item.orientation) {
+    if (aspectRatio > 2.0) {
+      orientation = "panoramic";
+    } else if (aspectRatio >= 1.05) {
+      orientation = "landscape";
+    } else if (aspectRatio <= 0.95) {
+      orientation = "portrait";
+    } else {
+      orientation = "square";
+    }
   }
 
   return {
